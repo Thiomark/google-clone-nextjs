@@ -27,8 +27,16 @@ export default Search
 export async function getServerSideProps(context){
     const dummyData = false;
     const startIndex = context.query.start || 0
+    let data
 
-    const data = dummyData ? Reponse : await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_kEY}&q=${context.query.term}&start=${startIndex}`).then(res => res.json());
+    try{
+        data = dummyData ? Reponse : await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_kEY}&q=${context.query.term}&start=${startIndex}`).then(res => res.json());
+    }
+    catch(error){
+        console.log(error)
+        data = Reponse
+    }
+
 
     return {
         props: {
