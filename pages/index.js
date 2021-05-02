@@ -4,6 +4,7 @@ import SearchComponent from '../components/SearchComponent'
 import FoooterComponent from '../components/FoooterComponent'
 
 export default function Home() {
+  console.log('google')
   return (
     <div className='flex flex-col h-screen'>
       <Head>
