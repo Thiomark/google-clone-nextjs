@@ -6,8 +6,6 @@ import PaginationButton from '../components/PaginationButton';
 import Reponse from '../dummyData'
 
 const Search = ({results, term}) => {
-    console.log(results.items)
-
     return (
         <div className='flex flex-col h-screen'>
             <Head>
@@ -25,7 +23,7 @@ const Search = ({results, term}) => {
 export default Search
 
 export async function getServerSideProps(context){
-    const dummyData = false;
+    const dummyData = true;
     const startIndex = context.query.start || 0
     let data
 
